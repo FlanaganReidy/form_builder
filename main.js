@@ -104,6 +104,9 @@ let formHTML = document.getElementById('fields');
 formData.forEach(function(e){
   if(e.type === 'select'){
     let selectWheel = document.createElement('select');
+    let firstOption = document.createElement('option');
+    firstOption.setAttribute('label', "Select Language...");
+    selectWheel.appendChild(firstOption);
     e.options.forEach(function(f){
       let newSelector= document.createElement('option');
       newSelector.setAttribute('value', f.value);
@@ -124,13 +127,13 @@ formData.forEach(function(e){
     formHTML.appendChild(newText);
   }
   else{
-  let newInput = document.createElement('input');
+    let newInput = document.createElement('input');
     formHTML.appendChild(newInput);
     newInput.setAttribute('type', e.type);
     newInput.setAttribute('label', e.label);
     newInput.id = e.id;
     newInput.placeholder = e.label;
-  let newIcon = document.createElement('i');
+    let newIcon = document.createElement('i');
     newIcon.className = "fa " + e.icon;
     newInput.appendChild(newIcon);
   }
