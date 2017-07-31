@@ -115,12 +115,23 @@ formData.forEach(function(e){
     selectWheel.id = e.id;
     formHTML.appendChild(selectWheel);
   }
+  else if(e.type === 'textarea'){
+    let newText = document.createElement('textarea')
+    newText.setAttribute('type', e.type);
+    newText.setAttribute('label', e.label);
+    newText.id = e.id;
+    newText.placeholder = e.label;
+    formHTML.appendChild(newText);
+  }
   else{
   let newInput = document.createElement('input');
-  formHTML.appendChild(newInput);
-  newInput.setAttribute('type', e.type);
-  newInput.setAttribute('label', e.label);
-  newInput.id = e.id;
-  newInput.placeholder = e.label;
-}
+    formHTML.appendChild(newInput);
+    newInput.setAttribute('type', e.type);
+    newInput.setAttribute('label', e.label);
+    newInput.id = e.id;
+    newInput.placeholder = e.label;
+  let newIcon = document.createElement('i');
+    newIcon.className = "fa " + e.icon;
+    newInput.appendChild(newIcon);
+  }
 });
